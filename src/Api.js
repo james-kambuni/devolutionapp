@@ -1,73 +1,76 @@
 import axios from 'axios';
-var BaseUrl = process?.env?.REACT_APP_BASE_URL || null;
 
-const getToken = () => localStorage.getItem('token');
+const BaseUrl = process.env.REACT_APP_BASE_URL;
+
+const getToken = () => localStorage.getItem('sessionToken');
 
 const api = {
-
   create: async (data) => {
-    const token = getToken(); 
     try {
       const response = await axios.post(BaseUrl, data, {
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`, 
-          'Session': `${token}`, 
-        }
+        headers: getHeaders(),
       });
       return response.data;
     } catch (error) {
-      throw error.response?.data || error.message;
+      handleError(error);
     }
   },
 
-
-  read: async () => {
-    const token = getToken(); 
+  consume: async (url) => {
     try {
-      const response = await axios.get(BaseUrl, {
-        headers: {
-          'Authorization': `Bearer ${token}`, 
-          'Session': `${token}`, 
-        }
-      });
+      const response = await axios.get(`${BaseUrl}${url}`);
       return response.data;
     } catch (error) {
-      throw error.response?.data || error.message;
+      handleError(error);
     }
   },
 
-
-  update: async (data) => {
-    const token = getToken();  
+  read: async (url) => {
     try {
-      const response = await axios.put(BaseUrl, data, {
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`,
-          'Session': `${token}`, 
-        }
+      const response = await axios.get(`${BaseUrl}${url}`, {
+        headers: getHeaders(),
       });
       return response.data;
     } catch (error) {
-      throw error.response?.data || error.message;
+      handleError(error);
     }
   },
 
-  delete: async () => {
-    const token = getToken(); 
+  update: async (data, url) => {
     try {
-      const response = await axios.delete(BaseUrl, {
-        headers: {
-          'Authorization': `Bearer ${token}`, 
-          'Session': `${token}`, 
-        }
+      const response = await axios.put(`${BaseUrl}${url}`, data, {
+        headers: getHeaders(),
       });
       return response.data;
     } catch (error) {
-      throw error.response?.data || error.message;
+      handleError(error);
     }
   },
+
+  delete: async (url) => {
+    try {
+      const response = await axios.delete(`${BaseUrl}${url}`, {
+        headers: getHeaders(),
+      });
+      return response.data;
+    } catch (error) {
+      handleError(error);
+    }
+  },
+};
+
+
+const getHeaders = () => {
+  const token = getToken();
+  return {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${token}`,
+    'Session': `${token}`,
+  };
+};
+
+const handleError = (error) => {
+  throw error.response?.data || error.message;
 };
 
 export default api;

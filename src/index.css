@@ -30,9 +30,6 @@ code {
   background: #555;
 }
 
-.container {
-  max-width: 100% !important;
-}
 
 form {
   width: 52% !important;
@@ -117,5 +114,47 @@ form {
     margin-left: auto;
     margin-right: auto;
     position: relative;
+  }
+}
+
+.marqueestyle {
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 10px 0;
+}
+
+.sponsors h1 {
+  font-size: 1.5rem;
+}
+
+.sponsor-marquee .scrolling-wrapper {
+  display: flex;
+  animation: scroll 20s linear infinite;
+}
+
+.sponsor-logo {
+  margin-right: 2rem;
+  max-width: 80px;
+  max-height: 60px;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .sponsors h1 {
+    font-size: 1.2rem;
+  }
+  .sponsor-logo {
+    max-width: 60px;
+    max-height: 45px;
+    margin-right: 1rem;
   }
 }

@@ -3,7 +3,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect,
   useLocation
 } from "react-router-dom";
 
@@ -12,6 +11,7 @@ import { useHistory } from "react-router-dom";
 import AccessibleNavigationAnnouncer from "./components/AccessibleNavigationAnnouncer";
 import { Toaster } from 'react-hot-toast';
 import SessionExpiryPopup from "./components/SessionExpiry";
+import Home from "./pages/Home";
 
 
 const AgentLayout = lazy(() => import("./containers/AgentLayout"));
@@ -63,6 +63,7 @@ function App() {
         <TitleUpdater />
 
         <Switch>
+          <Route path="/" component={Home} />
           <Route path="/login" component={Login} />
           <Route path="/create-account" component={CreateAccount} />
           <Route path="/forgot-password" component={ForgotPassword} />
@@ -82,7 +83,6 @@ function App() {
 
           <Route path="/transaction" component={TransactionLayout} />
 
-          <Redirect exact from="/" to="/login" />
         </Switch>
 
         <Toaster />
