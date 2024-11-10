@@ -1,0 +1,40 @@
+.table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+.th, .td {
+    padding: 10px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    text-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+.section-title {
+    margin-top: 30px;
+    font-size: 20px;
+    color: #2C3E50;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+.bold {
+        font-weight: bold;
+}
+.text-right {
+    text-align: right;
+}
+.total {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #e74c3c;
+}
+.logo {
+    width: 160px;
+    margin: 10px auto;
+}

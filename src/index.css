@@ -1,0 +1,121 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+::-webkit-scrollbar {
+  width: 1px !important; 
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: lightgray; 
+  border-radius: 10px; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.container {
+  max-width: 100% !important;
+}
+
+form {
+  width: 52% !important;
+  margin-right: auto !important;
+}
+
+.former {
+  width: 100% !important;
+}
+
+.oler {
+  max-width: fit-content !important;
+}
+
+.coler {
+  max-width: 78% !important;
+}
+
+.boldAndGray {
+  color: gray;
+  font-weight: 700;
+}
+
+.react-tel-input .form-control {
+  width: 100% !important;
+}
+
+/* Add this to your CSS */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .print-content, .print-content * {
+    visibility: visible;
+  }
+  .print-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+}
+
+
+@media screen and (max-width: 760px) {
+  form {
+    width: 100% !important;
+    margin-right: auto !important;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  form > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+
+  .former > label {
+    width: 100% !important;
+  }
+
+  form > div > div{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: auto;
+  }
+
+  form > div > div > select {
+    width: 100% !important;
+  }
+
+  .oler {
+    max-width: 100% !important;
+  }
+
+  .coler {
+    max-width: 100% !important;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+  }
+}
