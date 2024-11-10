@@ -134,8 +134,7 @@ form {
 
 .sponsor-logo {
   margin-right: 2rem;
-  max-width: 80px;
-  max-height: 60px;
+  max-height: 200px;
 }
 
 @keyframes scroll {
@@ -157,4 +156,9 @@ form {
     max-height: 45px;
     margin-right: 1rem;
   }
+}
+
+
+.lohoimage {
+  width: 140px !important;
 }
